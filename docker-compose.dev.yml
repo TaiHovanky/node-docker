@@ -10,3 +10,11 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+      - MONGO_USER=appuser
+      - MONGO_PASSWORD=mypassword
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=appuser
+      - MONGO_INITDB_ROOT_PASSWORD=mypassword
