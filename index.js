@@ -40,7 +40,6 @@ const connectWithRetry = () => {
 
 connectWithRetry();
 
-app.enable('trust proxy');
 app.use(cors({}));
 app.use(session({
   store: new RedisStore({ client: redisClient }),
@@ -55,7 +54,7 @@ app.use(session({
 }));
 
 app.get('/', (req, res) => {
-    res.send('<h2>hi there person!!!</h2>');
+  res.send('<h2>hi there person!!!</h2>');
 });
 
 app.use('/api/v1/posts', postRouter);
