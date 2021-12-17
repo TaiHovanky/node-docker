@@ -4,15 +4,16 @@ const bcrypt = require('bcryptjs');
 
 exports.signUp = async (req, res) => {
   const { username, password } = req.body;
-
+  console.log('signup happening')
   try {
     const hashpassword = await bcrypt.hash(password, 12);
+    console.log('hashpassword', hashpassword);
     const newUser = await User.create({
       username,
       password: hashpassword,
     });
     console.log('new user', newUser);
-    req.session.user = newUser;
+    // req.session.user = newUser;
     res.status(201).json({
       status: "success",
       data: {
